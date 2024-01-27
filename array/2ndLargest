@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+int secondLargest(int arr[],int s,int e){
+    int largest=arr[0];
+    int slargest=-1;
+    for(int i=1;i<=e;i++){
+        if(arr[i]>largest){
+            slargest=largest;
+            largest=arr[i];
+        }else if(arr[i] >slargest&&arr[i]!=largest){
+            slargest=arr[i];
+        }
+    }
+    return slargest;
+}
+int secondSmallest(int arr[],int s,int e){
+    int smallest=arr[0];
+    int ssmallest= 9999;
+    for(int i=1;i<=e;i++){
+        if(arr[i]<smallest){
+            ssmallest=smallest;
+            smallest=arr[i];
+        }else if(arr[i]!= smallest && arr[i]<ssmallest){
+            ssmallest=arr[i];
+        }
+    }
+    return ssmallest;
+}
+
+
+int main()
+{
+   int arr[6]={0,5,7,3,9,6};
+   int slargest=secondLargest(arr,0,5);
+   int ssmallest=secondSmallest(arr,0,5);
+   
+   cout<<slargest<<endl;
+   cout<<ssmallest<<endl;
+}
